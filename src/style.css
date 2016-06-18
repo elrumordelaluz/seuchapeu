@@ -1,0 +1,8 @@
+:root {
+  --mainColor: #ffbbaaff;
+}
+
+body {
+  color: var(--mainColor);
+  transform: translateX(50%);
+}
