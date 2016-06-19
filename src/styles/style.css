@@ -1,0 +1,28 @@
+:root {
+  --font-color: #231f20;
+  --detail-color: #f37321;
+  --bg-color: #f7f7f7;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: Helvetica Neue, Helvetica, Arial, 'sans';
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.main-logo {
+  width: 3em;
+}
+
+.detail {
+  fill: var(--detail-color);;
+}
