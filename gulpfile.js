@@ -1,6 +1,7 @@
 const gulp = require('gulp')
 const postcss = require('gulp-postcss')
 const cssnext = require('postcss-cssnext')
+const sorting = require('postcss-sorting')
 const cssnano = require('cssnano')
 const pug = require('gulp-pug')
 const babel = require('gulp-babel')
@@ -14,6 +15,7 @@ gulp.task('css', () => {
   const processors = [
     cssnext({ browsers: ['last 2 versions'] }),
     cssnano({ autoprefixer: false }),
+    sorting({ "sort-order": "csscomb" }),
   ]
   return gulp.src('./src/styles/*.css')
     .pipe(sourcemaps.init())
