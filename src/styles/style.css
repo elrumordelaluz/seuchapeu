@@ -10,12 +10,12 @@ body {
 }
 
 body {
-  background-color: var(--bg-color);
   color: var(--font-color);
   font-family: Helvetica Neue, Helvetica, Arial, 'sans';
   margin: 0;
   padding: 0;
   display: flex;
+  background-color: var(--bg-color);
   justify-content: center;
 }
 
