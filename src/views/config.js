@@ -1,5 +1,5 @@
 const config = {
-  mainTitle: 'Seuchapeu.com',
+  mainTitle: 'seuchapeu.com',
 }
 
 module.exports = config
