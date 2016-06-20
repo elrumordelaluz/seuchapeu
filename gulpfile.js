@@ -14,8 +14,8 @@ const viewsConfig = require('./src/views/config')
 gulp.task('css', () => {
   const processors = [
     cssnext({ browsers: ['last 2 versions'] }),
-    cssnano({ autoprefixer: false }),
     sorting({ "sort-order": "csscomb" }),
+    cssnano({ autoprefixer: false }),
   ]
   return gulp.src('./src/styles/*.css')
     .pipe(sourcemaps.init())
