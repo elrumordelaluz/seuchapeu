@@ -2,6 +2,7 @@
   --font-color: #231f20;
   --detail-color: #f37321;
   --bg-color: #f7f7f7;
+  --bg-color: rgb(239,241,243);
 }
 
 html,
@@ -11,18 +12,107 @@ body {
 
 body {
   color: var(--font-color);
-  font-family: Helvetica Neue, Helvetica, Arial, 'sans';
   margin: 0;
   padding: 0;
-  display: flex;
   background-color: var(--bg-color);
-  justify-content: center;
+  font-family: "clavo",sans-serif;
 }
 
+img {
+  display: block;
+  width: 100%;
+}
+
+
+.svg-symbols {
+  display: block;
+  height: 0;
+  width: 0;
+}
+
+.back-link {
+  color: var(--detail-color);
+  width: 2em;
+  display: block;
+  margin: 0 auto;
+  transform: rotate(-90deg);
+}
+
+.back-link__svg {
+  width: 100%;
+}
+
+/*
+*
+* Header
+* 
+*/
+
+
 .main-logo {
-  width: 3em;
+  width: 1.5em;
 }
 
 .detail {
   fill: var(--detail-color);
+}
+
+.nav {
+  margin-top: 3em;
+  font-family: "acumin-pro-extra-condensed",sans-serif;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__item {
+  margin: 0 1em;
+  font-size: 2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+  transition: color .3s;
+  &:hover {
+    color: var(--detail-color);
+  }
+}
+
+
+/*
+*
+* Main
+* 
+*/
+
+.main {
+  margin-top: 4em;
+}
+
+.container {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.main__img {
+  mix-blend-mode: multiply;
+}
+
+.main__desc {
+  margin-top: 1em;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 1.15em;
+  font-weight: 300;
+  line-height: 2;
 }
