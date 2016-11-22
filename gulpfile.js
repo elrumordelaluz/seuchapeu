@@ -21,7 +21,7 @@ gulp.task('css', () => {
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./docs'))
     .pipe(reload({ stream: true }))
 })
 
@@ -31,7 +31,7 @@ gulp.task('pug', () => {
       pretty: true,
       locals: viewsConfig
     }))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./docs'))
     .pipe(reload({ stream: true }))
 })
 
@@ -42,14 +42,14 @@ gulp.task('js', () => {
       presets: ['es2015', 'stage-2']
     }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./docs'))
     .pipe(reload({ stream: true }))
 })
 
 gulp.task('imgs', () => {
   return gulp.src('./src/images/*')
     .pipe(imagemin())
-    .pipe(gulp.dest('./dist/imgs'))
+    .pipe(gulp.dest('./docs/imgs'))
     .pipe(reload({ stream: true }))
 })
 
@@ -61,7 +61,7 @@ gulp.task('watch', () => {
 
   browserSync({
     server: {
-      baseDir: './dist'
+      baseDir: './docs'
     }
   })
 })
