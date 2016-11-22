@@ -173,6 +173,7 @@ img {
 @media (min-width: 40em) {
   .footer { 
     width: 30vw;
+    margin-bottom: 5em;
   }
 }
 
