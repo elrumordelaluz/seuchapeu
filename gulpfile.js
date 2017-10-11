@@ -7,17 +7,18 @@ const pug = require('gulp-pug')
 const babel = require('gulp-babel')
 const browserSync = require('browser-sync')
 const sourcemaps = require('gulp-sourcemaps')
-const imagemin = require('gulp-imagemin');
+const imagemin = require('gulp-imagemin')
 const reload = browserSync.reload
 const viewsConfig = require('./src/views/config')
 
 gulp.task('css', () => {
   const processors = [
     cssnext({ browsers: ['last 2 versions'] }),
-    sorting({ "sort-order": "csscomb" }),
+    sorting({ 'sort-order': 'csscomb' }),
     cssnano({ autoprefixer: false }),
   ]
-  return gulp.src('./src/styles/*.css')
+  return gulp
+    .src('./src/styles/*.css')
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))
     .pipe(sourcemaps.write())
@@ -26,28 +27,45 @@ gulp.task('css', () => {
 })
 
 gulp.task('pug', () => {
-  return gulp.src('./src/views/*.pug')
-    .pipe(pug({
-      pretty: true,
-      locals: viewsConfig
-    }))
+  return gulp
+    .src('./src/views/*.pug')
+    .pipe(
+      pug({
+        pretty: true,
+        locals: viewsConfig,
+      })
+    )
     .pipe(gulp.dest('./docs'))
     .pipe(reload({ stream: true }))
 })
 
 gulp.task('js', () => {
-  return gulp.src('./src/scripts/*.js')
+  return gulp
+    .src('./src/scripts/*.js')
     .pipe(sourcemaps.init())
-    .pipe(babel({
-      presets: ['es2015', 'stage-2']
-    }))
+    .pipe(
+      babel({
+        presets: [
+          [
+            'env',
+            {
+              targets: {
+                chrome: 60,
+              },
+            },
+          ],
+          'stage-2',
+        ],
+      })
+    )
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./docs'))
     .pipe(reload({ stream: true }))
 })
 
 gulp.task('imgs', () => {
-  return gulp.src('./src/images/*')
+  return gulp
+    .src('./src/images/*')
     .pipe(imagemin())
     .pipe(gulp.dest('./docs/imgs'))
     .pipe(reload({ stream: true }))
@@ -61,8 +79,8 @@ gulp.task('watch', () => {
 
   browserSync({
     server: {
-      baseDir: './docs'
-    }
+      baseDir: './docs',
+    },
   })
 })
 
